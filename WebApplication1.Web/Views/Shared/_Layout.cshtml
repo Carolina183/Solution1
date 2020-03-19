@@ -1,0 +1,309 @@
+﻿@model WebApplication1.Web.Models.UserLogin
+@using System.Web.Optimization
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+
+     @Styles.Render("~/bundles/style/css")
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+     <link href="https://fonts.googleapis.com/css?family=Bad+Script&display=swap" rel="stylesheet">
+
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+     @Styles.Render("~/bundles/boostrap/css")
+
+     <title>laborator</title>
+</head>
+
+<body>
+     <!----------prima pagina-----log in ----->
+     <section id="header">
+          <header role="banner">
+
+               <nav class="main-nav">
+                    <ul>
+                         <!-- insert more links here -->
+                         <li><a class="cd-signin" href="#0">Sign in</a></li>
+                         <li><a class="cd-signup" href="#0">Sign up</a></li>
+                    </ul>
+               </nav>
+          </header>
+
+          <div class="cd-user-modal">
+               <!-- this is the entire modal form, including the background -->
+               <div class="cd-user-modal-container">
+                    <!-- this is the container wrapper -->
+                    <ul class="cd-switcher">
+                         <li><a href="#0">Sign in</a></li>
+                         <li><a href="#0">New account</a></li>
+                    </ul>
+                    <div id="cd-login">
+                         <!-- log in form -->
+                         @Html.ValidationSummary(true)
+                         @using (Html.BeginForm("SignIn", "Authentification", FormMethod.Post, new { @id = "loginForm", @class = "cd-form" }))
+                         {
+                              @Html.AntiForgeryToken()
+                              <p class="fieldset">
+                                   <label class="image-replace cd-email" for="signin-email">E-mail</label>
+                                   @Html.TextBoxFor(m => m.Username, new { type = "email", placeholder = "E-mail", id = "signin-email", name = "signin-email", @class = "full-width has-padding has-border" })
+                                   <span class="cd-error-message">Error message here!</span>
+                              </p>
+
+                              <p class="fieldset">
+                                   <label class="image-replace cd-password" for="signin-password">Password</label>
+                                   @Html.TextBoxFor(m => m.Password, new { type = "password", placeholder = "Password", id = "signin-password", name = "signin-password", @class = "full-width has-padding has-border" })
+                                   <a href="#0" class="hide-password">Hide</a>
+                                   <span class="cd-error-message">Error message here!</span>
+                              </p>
+
+                              <p class="fieldset">
+                                   <input type="checkbox" id="remember-me" checked>
+                                   <label for="remember-me">Remember me</label>
+                              </p>
+
+                              <p class="fieldset">
+                                   <button class="full-width" type="submit">Submit</button> 
+                              </p>
+                         }
+                         <p class="cd-form-bottom-message">
+                              <a href="#0">Forgot your password?</a>
+                         </p>
+                         <!-- <a href="#0" class="cd-close-form">Close</a> -->
+                    </div> <!-- cd-login -->
+
+                    <div id="cd-signup">
+                         <!-- sign up form -->
+                         <form class="cd-form">
+                              <p class="fieldset">
+                                   <label class="image-replace cd-username" for="signup-username">Username</label>
+                                   <input class="full-width has-padding has-border" id="signup-username" type="text"
+                                          placeholder="Username">
+                                   <span class="cd-error-message">Error message here!</span>
+                              </p>
+
+                              <p class="fieldset">
+                                   <label class="image-replace cd-email" for="signup-email">E-mail</label>
+                                   <input class="full-width has-padding has-border" id="signup-email" type="email"
+                                          placeholder="E-mail">
+                                   <span class="cd-error-message">Error message here!</span>
+                              </p>
+
+                              <p class="fieldset">
+                                   <label class="image-replace cd-password" for="signup-password">Password</label>
+                                   <input class="full-width has-padding has-border" id="signup-password" type="text"
+                                          placeholder="Password">
+                                   <a href="#0" class="hide-password">Hide</a>
+                                   <span class="cd-error-message">Error message here!</span>
+                              </p>
+
+                              <p class="fieldset">
+                                   <input type="checkbox" id="accept-terms">
+                                   <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+                              </p>
+
+                              <p class="fieldset">
+                                   <input class="full-width has-padding" type="submit" value="Create account">
+                              </p>
+                         </form>
+                         <!-- <a href="#0" class="cd-close-form">Close</a> -->
+                    </div> <!-- cd-signup -->
+
+                    <div id="cd-reset-password">
+                         <!-- reset password form -->
+                         <p class="cd-form-message">
+                              Lost your password? Please enter your email address. You will receive a link
+                              to create a new password.
+                         </p>
+
+                         <form class="cd-form">
+                              <p class="fieldset">
+                                   <label class="image-replace cd-email" for="reset-email">E-mail</label>
+                                   <input class="full-width has-padding has-border" id="reset-email" type="email"
+                                          placeholder="E-mail">
+                                   <span class="cd-error-message">Error message here!</span>
+                              </p>
+
+                              <p class="fieldset">
+                                   <input class="full-width has-padding" type="submit" value="Reset password">
+                              </p>
+                         </form>
+
+                         <p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+                    </div> <!-- cd-reset-password -->
+                    <a href="#0" class="cd-close-form">Close</a>
+               </div> <!-- cd-user-modal-container -->
+          </div> <!-- cd-user-modal -->
+          <!------Efecte text------>
+          <div id="ui">
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+               <div class="text">Pinkie Nails </div>
+          </div>
+
+          <!-- Alege Nail Art atunci când ai poftă de aventură și de un aspect creativ. Nail art este o modalitate de a picta, decora și de a scoate în evidență unghiile. Este un gen de ”operă de artă”, aplicată pe manichiura ta -->
+          <!------scroll------->
+          <div class="box">
+               <span></span>
+               <span></span>
+          </div>
+     </section>
+     <!--------------------INFO SECTIE------------------------->
+     <!-----NAVBAR----->
+     <div id="user-info">
+          <div class="nav-bar">
+               <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="#">
+                         <h3>Pinkie Nails</h3>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                         <i class="fa fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                         <ul class="navbar-nav ml-auto">
+                              <li class="nav-item">
+                                   <a class="nav-link" href="#top" style="color: white;"> Acasă </a>
+                              </li>
+                              <li class="nav-item">
+                                   <a class="nav-link" href="#about" style="color: white;"> Despre </a>
+                              </li>
+                              <li class="nav-item">
+                                   <a class="nav-link" href="#services" style="color: white;"> Avantaje </a>
+                              </li>
+                              <li class="nav-item">
+                                   <a class="nav-link" href="#contact" style="color: white;"> Contacte </a>
+                              </li>
+                         </ul>
+                    </div>
+               </nav>
+          </div>
+     </div>
+
+     <div class="container-fluid fh5co_footer_bg pb-3">
+          <div class="container animate-box">
+               <div class="row"></div>
+          </div>
+
+          @RenderBody()
+
+          <!-----------Retele de socializare------------------ -->
+          <div class="section">
+               <ul class="social-btns">
+                    <li>
+                         <a href="https://twitter.com/hashtag/unghii" class="social-btn-dissolve twitter">
+                              <i class="fa fa-twitter"></i>
+                         </a>
+                    </li>
+
+                    <li>
+                         <a href="https://www.facebook.com/carolina.crivoguz.5?epa=SEARCH_BOX"
+                            class="social-btn-dissolve facebook">
+                              <i class="fa fa-facebook"></i>
+                         </a>
+                    </li>
+
+                    <li>
+                         <a href="https://www.google.com/search?q=mail&oq=mail&aqs=chrome..69i57j35i39j0l3j69i60l3.4903j0j4&sourceid=chrome&ie=UTF-8"
+                            class="social-btn-dissolve google">
+                              <i class="fa fa-google"></i>
+                         </a>
+                    </li>
+
+                    <li>
+                         <a href="https://ro.pinterest.com/adelasacalas/modele-unghii/" class="social-btn-dissolve pinterest">
+                              <i class="fa fa-pinterest-p"></i>
+                         </a>
+                    </li>
+
+                    <li>
+                         <a href="https://www.instagram.com/carolinacrivoguz/" class="social-btn-dissolve instagram">
+                              <i class="fa fa-instagram"></i>
+                         </a>
+                    </li>
+
+                    <li>
+                         <a href="https://www.tumblr.com/tagged/nails" class="social-btn-dissolve tumblr">
+                              <i class="fa fa-tumblr"></i>
+                         </a>
+                    </li>
+
+               </ul>
+          </div>
+
+          <div class="contact" id="contact">
+               <div class="container text-center">
+                    <h1>Contacte <i class="fa fa-address-book" aria-hidden="true"></i></h1>
+                    <p></p>
+                    <div class="row">
+                         <div class="col-md-4">
+                              <i class="fa fa-phone"></i>
+                              <p>+373 60 389 846</p>
+                         </div>
+
+                         <div class="col-md-4">
+                              <i class="fa fa-envelope"></i>
+                              <p>carolinacrivoguz@gmail.com</p>
+                         </div>
+
+                         <div class="col-md-4">
+                              <i class="fa fa-usb" aria-hidden="true"></i>
+                              <p>______Alege Calitate!_____</p>
+                         </div>
+
+                    </div>
+                    <div class="footer text-center">
+                         <p> <i class="fa fa-heart-o"></i></p>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+     @Scripts.Render("~/bundles/jquery/js")
+     @Scripts.Render("~/bundles/bootstrap/js")
+     @Scripts.Render("~/bundles/custom/js")
+</body>
+
+</html>
