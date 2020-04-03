@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WebApplication1.Domain.Entities.User
+﻿namespace WebApplication1.Domain.Entities.User
 {
     public class ULoginResp
      {

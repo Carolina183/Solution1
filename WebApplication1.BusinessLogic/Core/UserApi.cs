@@ -1,24 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Linq;
+using WebApplication1.Domain;
 using WebApplication1.Domain.Entities.User;
 
-namespace WebApplication1.BusinessLogic.Core
+namespace WebApplication1.BusinessLogic
 {
      public class UserApi
      {
           internal ULoginResp UserLoginAction(ULoginData data)
           {
-               var _username = "test@test";
-               var _password = "test";
+               User result;
 
-               if (data.Username != _username || data.Password != _password)
+               using (var db = new UserContext())
                {
-                    return new ULoginResp
+                    result = db.Users.FirstOrDefault(u => u.Username == data.Username && u.Password == data.Password);
+                    if (result == null)
                     {
-                         Status = false,
-                         StatusMsg = "The Username or Password is Incorrect"
-                    };
+                         return new ULoginResp
+                         {
+                              Status = false,
+                              StatusMsg = "The Username or Password is Incorrect"
+                         };
+                    }
                }
                return new ULoginResp { Status = true };
           }

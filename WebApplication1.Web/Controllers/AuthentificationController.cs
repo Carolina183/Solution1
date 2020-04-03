@@ -38,14 +38,14 @@ namespace WebApplication1.Web.Controllers
                     var userLogin = _session.UserLogin(data);
                     if (userLogin.Status)
                     {
-                         return Redirect("http://www.ok.ru");
+                         return Redirect("/Home/Index");
                     }
                     else
                     {
                          ModelState.AddModelError("", userLogin.StatusMsg);
                     }
                }
-               return View();
+               return Redirect("/Home/Index");
           }
 
           [HttpPost]
