@@ -1,0 +1,31 @@
+﻿@model WebApplication1.Web.Models.UserRegisterModel
+<div id="cd-signup">
+    <!-- sign up form -->
+    @Html.ValidationSummary(true)
+    @using (Html.BeginForm("SignUp", "Authentification", FormMethod.Post, new { @id = "registerForm", @class = "cd-form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <p class="fieldset">
+            <label class="image-replace cd-email" for="signup-email">E-mail</label>
+            @Html.TextBoxFor(m => m.Login, new { type = "email", placeholder = "Email Address", id = "email", name = "email", @class = "full-width has-padding has-border" })
+        </p>
+
+        <p class="fieldset">
+            <label class="image-replace cd-password" for="signup-password">Password</label>
+            @Html.TextBoxFor(m => m.Password, new { type = "password", placeholder = "Password", id = "password", name = "password", @class = "full-width has-padding has-border" })
+            <a href="#0" class="hide-password">Hide</a>
+        </p>
+
+        <p class="fieldset">
+            <input type="checkbox" id="accept-terms">
+            <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+        </p>
+
+        <p class="fieldset">
+            <button class="full-width has-padding">Create account</button>
+        </p>
+
+        <a href="#0" class="cd-close-form">Close</a>
+    }
+</div> <!-- cd-user-modal-container -->

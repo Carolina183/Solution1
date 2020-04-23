@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<WebApplication1.Domain.Entities.User.PostEntity>
 @{
      ViewBag.Title = "Index";
 }
@@ -91,105 +91,116 @@
      </div>
 </div>
 <!-------------------------galerie-------------------------------------->
-<section id="gallery" class="gallery section">
-     <div class="container">
-          <div class="section-header">
-               <h2 class="wow fadeInDown animated">Galerie</h2>
-               <p class="wow fadeInDown animated">Modele de unghii și Clienti multumiți</p>
-          </div>
-          <div class="row no-gutter">
-               <div class="col-lg-3 col-md-6 col-sm-6 work">
-                    <a href="/Content/imgs/01.jpg" class="work-box">
-                         <img src="/Content/imgs/01.jpg" alt="">
+@if (Model.Count() > 0)
+{
+     <section id="gallery" class="gallery section">
+          <div class="container">
+               <div class="section-header">
+                    <h2 class="wow fadeInDown animated">Galerie</h2>
+                    <p class="wow fadeInDown animated">Modele de unghii și Clienti multumiți</p>
+               </div>
+               <div class="row no-gutter">
+                    @foreach (var post in Model)
+                    {
+                         <div class="col-lg-3 col-md-6 col-sm-6 work">
 
-                         <div class="overlay">
-                              <div class="overlay-caption">
-                              </div>
+                              <a href="Index/@post.PostId" class="work-box">
+                                   <img src="@post.ImageUrl" alt="" >
+
+                                   <!--<a href="/Content/imgs/01.jpg" class="work-box">
+                    <img src="/Content/imgs/01.jpg" alt="">-->
+
+                                   <div class="overlay">
+                                        <div class="overlay-caption">
+                                        </div>
+                                   </div>
+                                   <!-- overlay -->
+                              </a>
                          </div>
-                         <!-- overlay -->
-                    </a>
-               </div>
-               <div class="col-lg-3 col-md-6 col-sm-6 work">
-                    <a href="/Content/imgs/11.jpg" class="work-box">
-                         <img src="/Content/imgs/11.jpg" alt="">
-                         <div class="overlay">
-                              <div class="overlay-caption">
+                    }
+                    <div class="col-lg-3 col-md-6 col-sm-6 work">
+                         <a href="/Content/imgs/11.jpg" class="work-box">
+                              <img src="/Content/imgs/11.jpg" alt="">
+                              <div class="overlay">
+                                   <div class="overlay-caption">
+                                   </div>
                               </div>
-                         </div>
-                         <!-- overlay -->
-                    </a>
+                              <!-- overlay -->
+                         </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 work">
+                         <a href="/Content/imgs/03.jpg" class="work-box">
+                              <img src="/Content/imgs/03.jpg" alt="">
+                              <!-- overlay -->
+                         </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 work">
+                         <a href="/Content/imgs/04.jpg" class="work-box">
+                              <img src="/Content/imgs/04.jpg" alt="">
+                              <!-- overlay -->
+                         </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 work">
+                         <a href="/Content/imgs/05.jpg" class="work-box">
+                              <img src="/Content/imgs/05.jpg" alt="">
+                              <!-- overlay -->
+                         </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 work">
+                         <a href="/Content/imgs/15.jpg" class="work-box">
+                              <img src="/Content/imgs/15.jpg" alt="">
+                              <!-- overlay -->
+                         </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 work">
+                         <a href="/Content/imgs/13.jpg" class="work-box">
+                              <img src="/Content/imgs/13.jpg" alt="">
+                              <!-- overlay -->
+                         </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 work">
+                         <a href="/Content/imgs/08.jpg" class="work-box">
+                              <img src="/Content/imgs/08.jpg" alt="">
+                              <!-- overlay -->
+                         </a>
+                    </div>
+
                </div>
-               <div class="col-lg-3 col-md-6 col-sm-6 work">
-                    <a href="/Content/imgs/03.jpg" class="work-box">
-                         <img src="/Content/imgs/03.jpg" alt="">
-                         <!-- overlay -->
-                    </a>
+          </div>
+     </section>
+}
+     <!--end section -->
+     <!-----contactele------->
+     <!-----------aici e harta si box mesaje-->
+     <div class="container-fluid mb-4">
+          <div class="container">
+               <div class="col-12 text-center contact_margin_svnit ">
+                    <div class="text-center fh5co_heading py-2">Programare </div>
                </div>
-               <div class="col-lg-3 col-md-6 col-sm-6 work">
-                    <a href="/Content/imgs/04.jpg" class="work-box">
-                         <img src="/Content/imgs/04.jpg" alt="">
-                         <!-- overlay -->
-                    </a>
-               </div>
-               <div class="col-lg-3 col-md-6 col-sm-6 work">
-                    <a href="/Content/imgs/05.jpg" class="work-box">
-                         <img src="/Content/imgs/05.jpg" alt="">
-                         <!-- overlay -->
-                    </a>
-               </div>
-               <div class="col-lg-3 col-md-6 col-sm-6 work">
-                    <a href="/Content/imgs/15.jpg" class="work-box">
-                         <img src="/Content/imgs/15.jpg" alt="">
-                         <!-- overlay -->
-                    </a>
-               </div>
-               <div class="col-lg-3 col-md-6 col-sm-6 work">
-                    <a href="/Content/imgs/13.jpg" class="work-box">
-                         <img src="/Content/imgs/13.jpg" alt="">
-                         <!-- overlay -->
-                    </a>
-               </div>
-               <div class="col-lg-3 col-md-6 col-sm-6 work">
-                    <a href="/Content/imgs/08.jpg" class="work-box">
-                         <img src="/Content/imgs/08.jpg" alt="">
-                         <!-- overlay -->
-                    </a>
+               <div class="row">
+                    <div class="col-12 col-md-6">
+                         <form class="row" id="fh5co_contact_form">
+                              <div class="col-12 py-3">
+                                   <input type="text" class="form-control fh5co_contact_text_box" placeholder="Numele și penumele" />
+                              </div>
+                              <div class="col-6 py-3">
+                                   <input type="text" class="form-control fh5co_contact_text_box" placeholder="E-mail" />
+                              </div>
+                              <div class="col-6 py-3">
+                                   <input type="text" class="form-control fh5co_contact_text_box" placeholder="ora dorită" />
+                              </div>
+                              <div class="col-12 py-3">
+                                   <textarea class="form-control fh5co_contacts_message" placeholder="Mesaj"></textarea>
+                              </div>
+                              <div class="col-12 py-3 text-center">
+                                   <a href="#" class="btn contact_btn">Trimite mesaj</a>
+                              </div>
+                         </form>
+                    </div>
+                    <div class="col-12 col-md-6 align-self-center">
+                         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2718.010737906913!2d28.8689415!3d47.0596397!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97ce08a10e683%3A0x4d92abaf28198b6!2zU3RyYWRhIFN0dWRlbsibaWxvciwgQ2hpyJlpbsSDdSwgTW9sZG92YQ!5e0!3m2!1sro!2s!4v1580682102635!5m2!1sro!2s"
+                                 width="600" height="270" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    </div>
                </div>
           </div>
      </div>
-</section>
-<!--end section -->
-<!-----contactele------->
-<!-----------aici e harta si box mesaje-->
-<div class="container-fluid mb-4">
-     <div class="container">
-          <div class="col-12 text-center contact_margin_svnit ">
-               <div class="text-center fh5co_heading py-2">Programare </div>
-          </div>
-          <div class="row">
-               <div class="col-12 col-md-6">
-                    <form class="row" id="fh5co_contact_form">
-                         <div class="col-12 py-3">
-                              <input type="text" class="form-control fh5co_contact_text_box" placeholder="Numele și penumele" />
-                         </div>
-                         <div class="col-6 py-3">
-                              <input type="text" class="form-control fh5co_contact_text_box" placeholder="E-mail" />
-                         </div>
-                         <div class="col-6 py-3">
-                              <input type="text" class="form-control fh5co_contact_text_box" placeholder="ora dorită" />
-                         </div>
-                         <div class="col-12 py-3">
-                              <textarea class="form-control fh5co_contacts_message" placeholder="Mesaj"></textarea>
-                         </div>
-                         <div class="col-12 py-3 text-center">
-                              <a href="#" class="btn contact_btn">Trimite mesaj</a>
-                         </div>
-                    </form>
-               </div>
-               <div class="col-12 col-md-6 align-self-center">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2718.010737906913!2d28.8689415!3d47.0596397!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97ce08a10e683%3A0x4d92abaf28198b6!2zU3RyYWRhIFN0dWRlbsibaWxvciwgQ2hpyJlpbsSDdSwgTW9sZG92YQ!5e0!3m2!1sro!2s!4v1580682102635!5m2!1sro!2s"
-                            width="600" height="270" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-               </div>
-          </div>
-     </div>
-</div>

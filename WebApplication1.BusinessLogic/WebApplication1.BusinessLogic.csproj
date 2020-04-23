@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Core\BlogApi.cs~RF4fd5b4b.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="EntityFramework" Version="6.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
   </ItemGroup>
@@ -12,6 +17,10 @@
   <ItemGroup>
     <ProjectReference Include="..\WebApplication1.Domain\WebApplication1.Domain.csproj" />
     <ProjectReference Include="..\WebApplication1.Helpers\WebApplication1.Helpers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web" />
   </ItemGroup>
 
 </Project>

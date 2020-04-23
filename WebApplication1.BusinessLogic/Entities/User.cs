@@ -5,7 +5,7 @@ using WebApplication1.Domain.Entities.Enums;
 
 namespace WebApplication1.Domain
 {
-     class User
+     public class User
      {
           [Key]
           [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -28,9 +28,6 @@ namespace WebApplication1.Domain
           public string Email { get; set; }
 
           public URole Level { get; set; }
-
-          [StringLength(100)]
-          public string AvatarUrl { get; set; }
 
           [DataType(DataType.Date)]
           public DateTime RegisterDate { get; set; }

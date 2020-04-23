@@ -1350,17 +1350,20 @@ textarea::-ms-clear {
    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-password.svg");
 }
 
-.cd-form input {
+.cd-form input,
+.cd-form button {
    margin: 0;
    padding: 0;
    border-radius: 0.25em;
 }
 
-.cd-form input.full-width {
+.cd-form input.full-width,
+.cd-form button.full-width {
    width: 100%;
 }
 
-.cd-form input.has-padding {
+.cd-form input.has-padding,
+.cd-form button.has-padding {
    padding: 12px 20px 12px 50px;
 }
 
@@ -1373,7 +1376,8 @@ textarea::-ms-clear {
    appearance: none;
 }
 
-.cd-form input.has-border:focus {
+.cd-form input.has-border:focus,
+.cd-form button.has-border:focus {
    border-color: #343642;
    box-shadow: 0 0 5px rgba(52, 54, 66, 0.1);
    outline: none;
@@ -1388,7 +1392,8 @@ textarea::-ms-clear {
    padding-right: 65px;
 }
 
-.cd-form input[type=submit] {
+.cd-form input[type=submit],
+.cd-form button {
    padding: 16px 0;
    cursor: pointer;
    background: #d76666;
@@ -1486,11 +1491,13 @@ textarea::-ms-clear {
       margin-bottom: 0;
    }
 
-   .cd-form input.has-padding {
+   .cd-form input.has-padding,
+   .cd-form button.has-padding {
       padding: 16px 20px 16px 50px;
    }
 
-   .cd-form input[type=submit] {
+   .cd-form input[type=submit],
+   .cd-form button {
       padding: 16px 0;
    }
 }
